@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "test": "_build/default/src/app.out",
-    "start": "_build/default/src/app.out",
+    "test": "_build/default/src/app.native",
+    "start": "_build/default/src/app.native",
     "build": "eval $(dependencyEnv) && nopam && rebel",
     "top": "eval $(dependencyEnv) && rtop",
     "env": "eval $(dependencyEnv) && env",
@@ -33,7 +33,7 @@
         "engine": "native",
         "entry": "src/Index.re",
         "unstable_flags": {
-          "link": "-linkpkg -thread -package threads",
+          "link": "-thread",
           "compile": "-thread"
         }
       }
