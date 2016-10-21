@@ -1,0 +1,42 @@
+{
+  "name": "reason-http-server-example",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "_build/default/src/app.out",
+    "start": "_build/default/src/app.out",
+    "build": "eval $(dependencyEnv) && nopam && rebel",
+    "top": "eval $(dependencyEnv) && rtop",
+    "env": "eval $(dependencyEnv) && env",
+    "editor": "eval $(dependencyEnv) && eval $EDITOR",
+    "whereisocamlmerlin": "eval $(dependencyEnv) && which ocamlmerlin-reason"
+  },
+  "dependencies": {
+    "@opam-alpha/merlin": "^ 2.5.0",
+    "@opam-alpha/ocaml": "4.2.3",
+    "nopam": "https://github.com/reasonml/nopam.git",
+    "dependency-env": "https://github.com/reasonml/dependency-env.git",
+    "reason": "https://github.com/facebook/reason.git",
+    "rebel": "https://github.com/reasonml/rebel.git",
+    "ocamlBetterErrors": "0.0.10",
+    "realpath": "*"
+  },
+  "rebel": {
+    "ocamlfindDependencies": [
+      "async",
+      "cohttp.lwt"
+    ],
+
+    "targets": [
+      {
+        "target": "default",
+        "engine": "native",
+        "entry": "src/Index.re",
+        "unstable_flags": {
+          "link": "-linkpkg -thread -package threads",
+          "compile": "-thread"
+        }
+      }
+    ]
+  }
+}
